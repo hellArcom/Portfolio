@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcom - Portfolio</title>
+    <!-- Particle-->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <style>
+        html {
+            font-size: 16px;
+            background-color: #222;
+            color: #00aa99;
+            font-family: "Fira Code", monospace;
+            font-family: "Playwrite AU SA", cursive;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal; 
+        }
+
+        body {
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        .container {
+            animation: move 1s ease-in-out;   
+            align-self: center;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 5px;
+            background-color: #000;
+            border-radius: 15px;
+            box-shadow: 5px 5px 5px #00aa99;
+        }
+
+        .container:hover {
+            font-size: 22px;
+            box-shadow: 2px 2px 2px #00ffe5;
+        }
+
+        a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            background-color: #22F;
+            border-radius: 10px;
+            padding: 5px;
+            align-content: center;
+            margin: auto;
+            box-shadow: 5px 5px 5px #666666;
+            border: 0px;
+        }
+
+        a:hover {
+            color: #222;
+            background-color: #00aa99;
+            box-shadow: 5px 5px 5px #000000;
+        }
+
+        h1, h2 {
+            color: #22DDFF;
+            text-align: center;
+        }
+
+        #particles-js {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* placer a l'arriere */
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(100vw);
+            }
+            100% {
+                transform: translateX(0vw);
+            }
+        }
+
+        .comp-bar {
+            width: 80%;
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+
+        .niv-bar {
+            height: 100%;
+            background-color: #00aa99;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+
+
+
+<body>
+    <div id="particles-js"></div>
+    <header>
+        <div class="container">
+            <h1>Portfolio de Arcom</h1>
+        </div>
+    </header>
+
+    <main>
+        <section id="competences">
+            <div class="container">
+                <h2>Compétences</h2>
+
+                <strong>En Programmation :</strong>
+                <ul class="Competences-list">
+                    <li>HTML, CSS
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 70%"></div></div></li>
+                    <li>JavaScript
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 10%"></div></div></li>
+                    <li>Python
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 85%"></div></div></li>
+                    <li>Batch / invite de commande
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 90%"></div></div></li>
+                </ul>
+
+                <strong>En Système d'exploitation :</strong>
+                <ul>
+                    
+                    <li>Windows vista/7/10/11
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 94%"></div></div>
+                    </li>
+                    <li>Linux
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 50%"></div></div>
+                    </li>
+                    <li>Android
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 50%">En fonction des version</div></div>
+                    </li>
+                </ul>
+
+
+                <strong>Logiciel :</strong>
+                <ul>
+                    <li>Libre office
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 98%"></div></div>
+                    </li>
+                    <li>Visual Studio Code
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 93%"></div></div>
+                    </li>
+                    <li>GitHub
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 90%"></div></div>
+                    </li>
+                    <li>Blender
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 65%"></div></div>
+                    </li>
+                    <li>GIMP
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 75%"></div></div>
+                    </li>
+                    <li>Virtual Box
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 85%"></div></div>
+                    </li>
+                    <li>Anydesk et msra
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 80%"></div></div>
+                    </li>
+                    <li>Unity 
+                        <div class="comp-bar">
+                            <div class="niv-bar" style="width: 7%"></div></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projets">
+            <div class="container">
+                <h2>Projets</h2>
+                <ul class="project-list">
+                    <li>
+                        <h3>HaycomChat</h3>
+                        <p>HaycomChat est un projet de messagerie chiffrer de bout en bout, conçue avec un objectif principal :<strong> Garentir la sécuriter des échanges.</strong></p>
+                        <p>Lancé le 22 mars 2025, ce projet est en constente evolution grâce à mon impliquation anssi que celle de 3 autre dévlopeur.</p>
+                        <p><i>Ce projet est en cours de devlopemment est n'est pas encore diponible</i></p>
+                        <a href="#" target="_blank">Projet pas encore disponible</a>
+                        <p> </p>
+                        <a href="https://github.com/hellArcom/HaycomChat" target="_blank">Code source</a>
+                    </li>
+                    <li>
+                        <h3>Netmess</h3>
+                        <p>Un projet de communication en temps réél</p>
+                        <p>Ce projet avais pour but de mieux comprendre le fonctionnement d'un système de messagerie en temps réél et d'améliorer mais compétence en programmation.</p>
+                        <a href="http://arcom.pythonanywhere.com/" target="_blank">Voir le projet</a>
+                        <p> </p>
+                        <a href="#">Aucun code source pour le moment</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="formations">
+            <div class="container">
+                <h2>Formations</h2>
+                <ul class="formation-list">
+                    <li>
+                        <h3>Bac pro CIEL (Cybersécurité, Informatique et Réseaux, Electronique)</h3>
+                        <p>Formation en cours.</p>
+                    </li>
+                    <li>
+                        <h3>Formation AP MAC sur le son </h3>
+                        <p>Formation qui m'a appris a utiliser une table de mixage, et s'occupé de tout la partie son d'un spectacle</p>
+                    </li>
+                    <li>
+                        <h3>Formation en ligne sur l'Informatique</h3>
+                        <p>J'apprend beaucoup de chose grâce a des vidéo sur internet c'est comme ça que j'ai appris a coder en python par exemple.</p>
+                    </li>
+
+                    <li>
+                        <h3>Autodidacte</h3>
+                        <p>J'apprend beaucoup de chose par moi même grâce a internet.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="loisirs">
+            <div class="container">
+                <h2>Loisirs</h2>
+                <ul>
+                    <li>Informatique principalement programmation</li>
+                    <li>Musique</li>
+                    <li>Apprendrendre de nouvelle chose (principalement sur l'Informatique)</li>
+                    <li>Parlez avec des personne</li>
+                    <li>Joué aux jeu vidéo</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="qualites">
+            <div class="container">
+                <h2>Qualités</h2>
+                <ul>
+                    <li>Créatif / imaginatif</li>
+                    <li>Curieux</li>
+                    <li>Perfectionniste</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <ul class="contact-info">
+                    <li>Email: <a href="mailto:argam7300@gmail.com">argam7300@gmail.com</a></li>
+                    <p> </p>
+                    <li>GitHub: <a href="https://github.com/hellArcom/" target="_blank">Mon profil GitHub</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Arcom - Tous droits réservés</p>
+        </div>
+    </footer>
+    
+</body>
+<script>
+const particleCount = 80;
+const particleSize = 0.5;
+const lineThickness = 0.5;
+
+const particlesArray = [];
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+document.body.appendChild(canvas);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+canvas.style.position = "fixed";
+canvas.style.top = "0";
+canvas.style.left = "0";
+canvas.style.zIndex = "-1";
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+class Particle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = particleSize;
+        this.color = "#00aa99";
+        this.speedX = (Math.random() - 0.5) * 2;
+        this.speedY = (Math.random() - 0.5) * 2;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
+}
+
+function drawLines() {
+    for (let i = 0; i < particlesArray.length; i++) {
+        for (let j = i + 1; j < particlesArray.length; j++) {
+            const dx = particlesArray[i].x - particlesArray[j].x;
+            const dy = particlesArray[i].y - particlesArray[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 150) {
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                ctx.strokeStyle = "#00aa99";
+                ctx.lineWidth = lineThickness;
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+document.addEventListener("click", (event) => {
+    const x = event.clientX;
+    const y = event.clientY;
+    particlesArray.push(new Particle(x, y));
+});
+
+function initParticles() {
+    for (let i = 0; i < particleCount; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        particlesArray.push(new Particle(x, y));
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(particle => {
+        particle.update();
+        particle.draw();
+    });
+    drawLines();
+    requestAnimationFrame(animate);
+}
+
+initParticles();
+animate();
+</script>
+
+</html>
