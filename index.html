@@ -136,7 +136,7 @@
                             <div class="niv-bar" style="width: 90%"></div></div></li>
                 </ul>
 
-                <strong>En Système d'exploitation :</strong>
+                <strong>En Système d'éxploitation :</strong>
                 <ul>
                     
                     <li>Windows vista/7/10/11
@@ -149,7 +149,7 @@
                     </li>
                     <li>Android
                         <div class="comp-bar">
-                            <div class="niv-bar" style="width: 50%">En fonction des version</div></div>
+                            <div class="niv-bar" style="width: 50%">En fonction des versions</div></div>
                     </li>
                 </ul>
 
@@ -198,9 +198,9 @@
                 <ul class="project-list">
                     <li>
                         <h3>HaycomChat</h3>
-                        <p>HaycomChat est un projet de messagerie chiffrer de bout en bout, conçue avec un objectif principal :<strong> Garentir la sécuriter des échanges.</strong></p>
-                        <p>Lancé le 22 mars 2025, ce projet est en constente evolution grâce à mon impliquation anssi que celle de 3 autre dévlopeur.</p>
-                        <p><i>Ce projet est en cours de devlopemment est n'est pas encore diponible</i></p>
+                        <p>HaycomChat est un projet de messagerie chiffrée de bout en bout, conçue avec un objectif principal :<strong> Garantir la sécuriter des échanges.</strong></p>
+                        <p>Lancé le 22 mars 2025, ce projet est en constente évolution grâce à mon impliquation ansi que celle de 3 autre dévlopeur.</p>
+                        <p><i>Ce projet est en cours de déveleppement est n'est pas encore diponible</i></p>
                         <a href="#" target="_blank">Projet pas encore disponible</a>
                         <p> </p>
                         <a href="https://github.com/hellArcom/HaycomChat" target="_blank">Code source</a>
@@ -208,7 +208,7 @@
                     <li>
                         <h3>Netmess</h3>
                         <p>Un projet de communication en temps réél</p>
-                        <p>Ce projet avais pour but de mieux comprendre le fonctionnement d'un système de messagerie en temps réél et d'améliorer mais compétence en programmation.</p>
+                        <p>Ce projet avais pour but de mieux comprendre le fonctionnement d'un système de messagerie en temps réél et d'améliorer mes compétence en programmation.</p>
                         <a href="http://arcom.pythonanywhere.com/" target="_blank">Voir le projet</a>
                         <p> </p>
                         <a href="#">Aucun code source pour le moment</a>
@@ -246,10 +246,10 @@
             <div class="container">
                 <h2>Loisirs</h2>
                 <ul>
-                    <li>Informatique principalement programmation</li>
+                    <li>Informatique, principalement la programmation</li>
                     <li>Écouter de la Musique</li>
                     <li>Apprendrendre de nouvelle chose (principalement sur l'Informatique)</li>
-                    <li>Parlez avec des personne</li>
+                    <li>Parlez avec des personnes</li>
                     <li>Joué aux jeu vidéo</li>
                 </ul>
             </div>
@@ -280,99 +280,99 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Arcom - Tous droits réservés</p>
+            <p>&copy; 2025 Arcom - Si vous voulais réutiliser des partit de mon code merci de me le dire avent.</p>
         </div>
     </footer>
     
 </body>
 <script>
-const particleCount = 80;
-const particleSize = 0.5;
-const lineThickness = 0.5;
+    const particleCount = 80;
+    const particleSize = 0.5;
+    const lineThickness = 0.5;
 
-const particlesArray = [];
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
-document.body.appendChild(canvas);
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-canvas.style.position = "fixed";
-canvas.style.top = "0";
-canvas.style.left = "0";
-canvas.style.zIndex = "-1";
-
-window.addEventListener("resize", () => {
+    const particlesArray = [];
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    document.body.appendChild(canvas);
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-});
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.zIndex = "-1";
 
-class Particle {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.size = particleSize;
-        this.color = "#00aa99";
-        this.speedX = (Math.random() - 0.5) * 2;
-        this.speedY = (Math.random() - 0.5) * 2;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    }
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-    }
-}
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
 
-function drawLines() {
-    for (let i = 0; i < particlesArray.length; i++) {
-        for (let j = i + 1; j < particlesArray.length; j++) {
-            const dx = particlesArray[i].x - particlesArray[j].x;
-            const dy = particlesArray[i].y - particlesArray[j].y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance < 150) {
-                ctx.beginPath();
-                ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-                ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-                ctx.strokeStyle = "#00aa99";
-                ctx.lineWidth = lineThickness;
-                ctx.stroke();
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = particleSize;
+            this.color = "#00aa99";
+            this.speedX = (Math.random() - 0.5) * 2;
+            this.speedY = (Math.random() - 0.5) * 2;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+    }
+
+    function drawLines() {
+        for (let i = 0; i < particlesArray.length; i++) {
+            for (let j = i + 1; j < particlesArray.length; j++) {
+                const dx = particlesArray[i].x - particlesArray[j].x;
+                const dy = particlesArray[i].y - particlesArray[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                    ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                    ctx.strokeStyle = "#00aa99";
+                    ctx.lineWidth = lineThickness;
+                    ctx.stroke();
+                }
             }
         }
     }
-}
 
-document.addEventListener("click", (event) => {
-    const x = event.clientX;
-    const y = event.clientY;
-    particlesArray.push(new Particle(x, y));
-});
-
-function initParticles() {
-    for (let i = 0; i < particleCount; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
+    document.addEventListener("click", (event) => {
+        const x = event.clientX;
+        const y = event.clientY;
         particlesArray.push(new Particle(x, y));
-    }
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particlesArray.forEach(particle => {
-        particle.update();
-        particle.draw();
     });
-    drawLines();
-    requestAnimationFrame(animate);
-}
 
-initParticles();
-animate();
+    function initParticles() {
+        for (let i = 0; i < particleCount; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            particlesArray.push(new Particle(x, y));
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particlesArray.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+        drawLines();
+        requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
 </script>
 
 </html>
