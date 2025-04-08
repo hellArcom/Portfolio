@@ -31,6 +31,7 @@
         }
 
         .container {
+            font-size: 16px;
             animation: move 1s ease-in-out;   
             align-self: center;
             max-width: 800px;
@@ -41,10 +42,19 @@
             box-shadow: 5px 5px 5px #00aa99;
         }
 
+
         .container:hover {
-            font-size: 22px;
-            box-shadow: 2px 2px 2px #00ffe5;
+            background: linear-gradient(20deg, #00ffe500, rgb(0, 0, 0));
+            box-shadow: 10px 10px 10px #00ffe5;
         }
+
+        .container:hover h1, .container:hover h2, .container:hover p, .container:hover li, .container:hover a {
+            text-shadow: 1px 1px 2px #000;
+        }
+
+
+
+
 
         a {
             color: rgb(255, 255, 255);
@@ -100,6 +110,11 @@
             height: 100%;
             background-color: #00aa99;
             border-radius: 5px;
+        }
+
+        strong {
+            margin-left: 15px;
+            margin-right: 15px;
         }
 
     </style>
