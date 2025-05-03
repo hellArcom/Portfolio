@@ -1,110 +1,14 @@
 html {
-    font-size: 16px;
-    background-color: #1f1f1f;
-    color: #00aa99;
-    font-family: "Fira Code", monospace;
-    font-family: "Playwrite AU SA", cursive;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal; 
+    background-color: #000;
+    color: #FFF;
 }
 
 body {
     width: 100vw;
-    overflow-x: hidden;
+    height: 100vh;
 }
 
-.container {
-    font-size: 16px;
-    animation: move 1s ease-in-out;   
-    align-self: center;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 5px;
-    background-color: #000;
-    border-radius: 15px;
-    box-shadow: 5px 5px 5px #00aa99;
-}
-
-.container:hover {
-    background: linear-gradient(20deg, #00ffe500, rgb(0, 0, 0));
-    box-shadow: 10px 10px 10px #00ffe5;
-}
-
-a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    background-color: #22F;
-    border-radius: 10px;
-    padding: 5px;
-    align-content: center;
-    margin: auto;
-    box-shadow: 5px 5px 5px #666666;
-    border: 0px;
-}
-
-a:hover {
-    color: #222;
-    background-color: #00aa99;
-    box-shadow: 5px 5px 5px #000000;
-}
-
-h1, h2 {
-    color: #ffffff;
-    text-align: center;
-    text-decoration: underline rgba(255, 255, 255, 0.377);
-    text-shadow:rgb(0, 255, 191) 2px 2px 8px;
-    font-style: oblique;
-}
-
-h1:hover , h2:hover {
-    text-shadow: 2px 2px 0 #00aa99, 4px 4px 0 #55aa99, 6px 6px 0 #55aa9960;
-}
-
-#particles-js {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* placer a l'arriere */
-}
-
-@keyframes move {
-    0% {
-        transform: translateX(100vw);
-    }
-    100% {
-        transform: translateX(0vw);
-    }
-}
-
-.comp-bar {
+h1 {
     width: 80%;
-    height: 10px;
-    background-color: #444;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-left: 10px;
-}
-
-.niv-bar {
-    height: 100%;
-    background-color: #00aa99;
-    border-radius: 5px;
-}
-
-strong {
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-#particles {
-    position: fixed; /* Fixe le canvas par rapport à la fenêtre */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Place le canvas en arrière-plan */
-    display: block; /* Évite certains problèmes d'espacement */
+    height: auto;
 }
