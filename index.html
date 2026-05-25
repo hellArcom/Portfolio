@@ -1,158 +1,300 @@
 <!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Arcom - Portfolio</title>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcom - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Plus Jakarta Sans for a modern tech feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icons & 3D Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Preloader / System Boot -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-circle"></div>
+            <span class="loader-text">INITIALISATION_DU_SYSTÈME</span>
+        </div>
+    </div>
 
-        <!-- Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
+    <!-- Background 3D Particles -->
+    <div id="canvas-container"></div>
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="style.css">
-    </head>
-
-    <body>
-        <div id="particles-js"></div>
-        <header>
-            <div class="container">
-                <h1>Portfolio de Arcom</h1>
-                <p style="text-align: center;">Développeur en cybersécurité, créateur de projets innovants et passionné par l'informatique.</p>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="dot"></span> ARCOM
             </div>
-        </header>
-
-        <main>
-            <section id="competences">
-                <div class="container">
-                    <h2>Compétences</h2>
-                        <strong>Maintenance et dépannage informatique</strong>
-                        <ul class="Competences-list">
-                            <li>HTML, CSS</li>
-                            <li>Diagnostic et réparation de PC,</li>
-                            <li>Tests et suivi matériel,</li>
-                            <li>Configuration et dépannage Windows</li>
-                        </ul>
-
-                        <strong>Programmation</strong>
-                        <ul class="Competences-list">
-                            <li>Python </li>
-                            <li>HTML/CSS </li>
-                            <li>Batch </li>
-                            <li>Kotlin (Android) </li> 
-                            <li>Rust </li>
-                            <li>Développement de scripts pour automatisation et optimisation </li>
-                        </ul>
-
-                        <strong>Cybersécurité et réseaux</strong>
-                        <ul class="Competences-list">
-                            <li>Sécurisation de systèmes et réseaux</li>
-                            <li>Analyse et résolution de problèmes complexes</li>
-                        </ul>
+            <div class="nav-wrapper">
+                <ul class="nav-links">
+                    <li><a href="#competences">Savoir-faire</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#formations">Parcours</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button id="theme-toggle" aria-label="Changer de thème">
+                        <i data-lucide="moon"></i>
+                    </button>
                 </div>
-            </section>
+            </div>
+            <button class="mobile-toggle" aria-label="Menu"><i data-lucide="menu"></i></button>
+        </div>
+    </nav>
 
-            <section id="projets">
-                <div class="container">
-                    <h2>Projets</h2>
-                    <ul class="project-list">
-                        <li>
-                            <h3>Netmess</h3>
-                            <p>Un projet de communication en temps réél</p>
-                            <p>Ce projet avais pour but de mieux comprendre le fonctionnement d'un système de messagerie en temps réél et d'améliorer mes compétence en programmation.</p>
-                            <a>Le projet n'est plus disponible</a>
-                            <p> </p>
-                            <a href="#">Aucun code source pour le moment</a>
-                            <h3>Learnbin</h3>
-                            <p>un mini wiki sur plusieur dommaine principalement de l'informatique</p>
-                            <p>Le but ? Faire que tout le monde puisse partager de information mais que les information reste fiable.</p>
-                            <a href="http://arcom.pythonanywhere.com/" target="_blank">Voir le projet</a>
-                            <p> </p>
-                            <a href="#">Aucun code source pour le moment</a>
-                        </li>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <div class="badge">Bienvenue</div>
+                <h1>Portfolio de <span class="text-gradient">Arcom</span></h1>
+                <p class="hero-description">
+                    Technicien en réparation de PC et développeur logiciel, créateur de projets innovants et passionné par l'informatique.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projets" class="btn btn-primary">Explorer les travaux</a>
+                    <a href="https://github.com/hellArcom/" target="_blank" class="btn btn-outline">
+                        <i data-lucide="github"></i> Profil GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-prompt">
+            <div class="mouse-icon"></div>
+            <span>DÉFILER POUR DÉCOUVRIR</span>
+        </div>
+    </header>
+
+    <section id="competences" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">COMPÉTENCES</span>
+                <h2 class="section-title">Expertise Technique</h2>
+            </div>
+            <div class="skills-grid">
+                <!-- Maintenance -->
+                <div class="skill-card reveal">
+                    <div class="card-icon"><i data-lucide="wrench"></i></div>
+                    <h3>Maintenance & Dépannage</h3>
+                    <ul class="skill-list">
+                        <li>Diagnostic et réparation de PC</li>
+                        <li>Tests et suivi matériel</li>
+                        <li>Configuration et dépannage Windows</li>
                     </ul>
                 </div>
-            </section>
-
-            <section id="formations">
-                <div class="container">
-                    <h2>Formations</h2>
-                    <ul class="formation-list">
-                        <li>
-                            <h3>Bac pro CIEL (Cybersécurité, Informatique et Réseaux, Electronique)</h3>
-                            <p>Formation en cours.</p>
-                        </li>
-                        <li>
-                            <h3>Formation AP MAC sur le son </h3>
-                            <p>Formation qui m'a appris a utiliser une table de mixage, et s'occupé de tout la partie son d'un spectacle</p>
-                        </li>
-                        <li>
-                            <h3>Cybersecurity Fundamentals IBM SkillsBuild</h3>
-                            <p>Formation sur les base de la cybersécurité.</p>
-                        </li>
-                        <li>
-                            <h3>E-sensibilisation SensCyber</h3>
-                            <p>Sensibilisation a la cybersécurité</p>
-                        </li>
-                        <li>
-                            <h3>MOOC secNum académie (ANSSI)</h3>
-                            <p>Formation qui explique comment éviter de ce faire piéger par un pirates informatique.</p>
-                        </li>
-                        <li>
-                            <h3>Autodidacte</h3>
-                            <p>J'apprend beaucoup de chose par moi même grâce a internet.</p>
-                        </li>
+                <!-- Programmation -->
+                <div class="skill-card reveal">
+                    <div class="card-icon"><i data-lucide="code"></i></div>
+                    <h3>Programmation</h3>
+                    <ul class="skill-list">
+                        <li>Python, Rust, Kotlin (Android), Batch</li>
+                        <li>HTML / CSS</li>
+                        <li>Scripts d'automatisation</li>
+                        <li>Optimisation logicielle</li>
                     </ul>
                 </div>
-            </section>
-
-            <section id="loisirs">
-                <div class="container">
-                    <h2>Loisirs</h2>
-                    <ul>
-                        <li>Informatique, principalement la programmation</li>
-                        <li>Écouter de la Musique</li>
-                        <li>Apprendrendre de nouvelle chose (principalement sur l'Informatique)</li>
-                        <li>Marche, vélo, course</li>
-                        <li>Joué aux jeu vidéo</li>
+                <!-- Sécurité -->
+                <div class="skill-card reveal">
+                    <div class="card-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>Cybersécurité & Réseaux</h3>
+                    <ul class="skill-list">
+                        <li>Sécurisation de systèmes et réseaux</li>
+                        <li>Analyse de vulnérabilités</li>
+                        <li>Résolution de problèmes complexes</li>
                     </ul>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <section id="qualites">
-                <div class="container">
-                    <h2>Qualités</h2>
-                    <ul>
-                        <li>Créatif / imaginatif</li>
+    <section id="projets" class="section bg-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">RÉALISATIONS</span>
+                <h2 class="section-title">Projets Marquants</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- LIFE RPG -->
+                <div class="project-card reveal">
+                    <div class="project-info">
+                        <span class="project-type">Productivity / Gamification</span>
+                        <h3>Life RPG</h3>
+                        <p>Une application innovante qui transforme votre vie en jeu de rôle, vous permettant de gagner de l'expérience en accomplissant vos tâches quotidiennes.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/hellArcom/Life-RPG-release" target="_blank" class="link-btn">
+                                Voir le depot github <i data-lucide="github"></i>
+                            </a>
+                            <a href="http://arcom.pythonanywhere.com/" target="_blank" class="link-btn">
+                                Voir le site du projet <i data-lucide="external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- NETMESS -->
+                <div class="project-card reveal">
+                    <div class="project-info">
+                        <span class="project-type">Communication</span>
+                        <h3>Netmess</h3>
+                        <p>Un système de messagerie en temps réel conçu pour comprendre les flux de données et perfectionner mes compétences en programmation.</p>
+                        <div class="project-meta">
+                            <span class="status-offline">Indisponible</span>
+                            <span class="source-none">Code source privé</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- LEARNBIN -->
+                <div class="project-card reveal">
+                    <div class="project-info">
+                        <span class="project-type">Knowledge Base</span>
+                        <h3>Learnbin</h3>
+                        <p>Un mini wiki multi-domaines (informatique) permettant de partager des informations fiables de manière collaborative.</p>
+                        <div class="project-links">
+                            <a href="http://arcom.pythonanywhere.com/" target="_blank" class="link-btn">
+                                Voir le projet <i data-lucide="external-link"></i>
+                            </a>
+                            <span class="source-none">Code source privé</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="formations" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">CURSUS</span>
+                <h2 class="section-title">Formations & Expériences</h2>
+            </div>
+            <div class="timeline">
+                <!-- BAC PRO -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">En cours</span>
+                        <h3>Bac Pro CIEL</h3>
+                        <p>Lycée Bernard Palissy - Cybersécurité, Informatique et Réseaux, Électronique.</p>
+                    </div>
+                </div>
+                <!-- MOOC SecNum -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025</span>
+                        <h3>MOOC SecNum académie</h3>
+                        <p>Certification en cybersécurité délivrée par l'ANSSI.</p>
+                    </div>
+                </div>
+                <!-- Stage 2025 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025 (3 + 4 semaines)</span>
+                        <h3>Stage Technique - Propc17</h3>
+                        <p>Maintenance, diagnostic et réparation de systèmes informatiques à Gémozac.</p>
+                    </div>
+                </div>
+                <!-- IBM -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Certification</span>
+                        <h3>IBM Cybersecurity Fundamentals</h3>
+                        <p>Formation aux bases de la cybersécurité par IBM SkillsBuild.</p>
+                    </div>
+                </div>
+                <!-- Fortinet -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Certification</span>
+                        <h3>Fortinet NS1 et NS2</h3>
+                        <p>Formation technique sur les menaces réseau et les solutions de sécurité.</p>
+                    </div>
+                </div>
+                <!-- SensCyber -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Certification</span>
+                        <h3>E-sensibilisation SensCyber</h3>
+                        <p>Sensibilisation aux risques numériques et bonnes pratiques.</p>
+                    </div>
+                </div>
+                <!-- Stage 2024 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024 (3 semaines)</span>
+                        <h3>Stage Multimédia - E.Leclerc</h3>
+                        <p>Vente et conseil technique au rayon multimédia de Jonzac.</p>
+                    </div>
+                </div>
+                <!-- Brevet -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Diplôme</span>
+                        <h3>Brevet des Collèges</h3>
+                        <p>Obtenu avec mention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profil" class="section bg-alt">
+        <div class="container">
+            <div class="profil-grid">
+                <div class="profil-box reveal">
+                    <h3>Qualités</h3>
+                    <ul class="pill-list">
+                        <li>Créatif / Imaginatif</li>
                         <li>Curieux</li>
                         <li>Perfectionniste</li>
                     </ul>
                 </div>
-            </section>
-
-            <section id="contact">
-                <div class="container">
-                    <h2>Contact</h2>
-                    <ul class="contact-info">
-                        <li>Email: <a href="mailto:argam7300@gmail.com">argam7300@gmail.com</a></li>
-                        <p> </p>
-                        <li>GitHub: <a href="https://github.com/hellArcom/" target="_blank">Mon profil GitHub</a></li>
+                <div class="profil-box reveal">
+                    <h3>Loisirs</h3>
+                    <ul class="pill-list">
+                        <li>Programmation</li>
+                        <li>Écouter de la Musique</li>
+                        <li>Apprentissage IT</li>
+                        <li>Marche, Vélo, Course</li>
+                        <li>Jeux Vidéo</li>
                     </ul>
                 </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="container">
-                <p>&copy; 2025-2026 Arcom</p>
             </div>
-        </footer>
+        </div>
+    </section>
 
-        <canvas id="particles"></canvas>
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-card reveal">
+                <h2>Envie de collaborer ?</h2>
+                <p>N'hésitez pas à me contacter via l'un des canaux ci-dessous.</p>
+                <div class="contact-links">
+                    <a href="mailto:argam7300@gmail.com" class="contact-btn">
+                        <i data-lucide="mail"></i> argam7300@gmail.com
+                    </a>
+                    <a href="https://github.com/hellArcom/" target="_blank" class="contact-btn">
+                        <i data-lucide="github"></i> hellArcom
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- JavaScript ( a la fin dans la cas d'erreur de chargement pour eviter que ça bloque la page)-->
-        <script src="particle.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025-2026 Arcom (Meunier Ilan). Tous droits réservés.</p>
+        </div>
+    </footer>
 
-    </body>
+    <script src="script.js"></script>
+</body>
 </html>
