@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(hideLoader, 3000); 
 
     // 3. Three.js Particles Background
+    // Mobile detection: lighter background on phones (PC behaviour unchanged)
+    const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
+
     const initThree = () => {
         try {
             const container = document.getElementById('canvas-container');
@@ -40,12 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            // Cap pixel ratio lower on mobile to keep 60fps
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobileViewport ? 1.5 : 2));
             container.appendChild(renderer.domElement);
 
             const particlesGeometry = new THREE.BufferGeometry();
-            // Optimization: Significantly reduced particle count (from 80k to 15k)
-            const particlesCount = 15000;
+            // Optimization: 15k on desktop, 3k on mobile (avoids lag / dropped frames)
+            const particlesCount = isMobileViewport ? 3000 : 15000;
             const posArray = new Float32Array(particlesCount * 3);
 
             for (let i = 0; i < particlesCount * 3; i++) {
@@ -70,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             const material = new THREE.PointsMaterial({
-                size: 0.012, // Slightly larger to compensate for lower count
+                size: isMobileViewport ? 0.018 : 0.012,
                 color: '#00d2ff',
                 transparent: true,
                 opacity: 0.8,
@@ -86,10 +90,13 @@ document.addEventListener('DOMContentLoaded', () => {
             let mouseX = window.innerWidth / 2;
             let mouseY = window.innerHeight / 2;
 
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
+            // Mouse parallax is desktop-only (no pointer on touch devices)
+            if (!isMobileViewport) {
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+            }
 
             const animate = () => {
                 requestAnimationFrame(animate);
@@ -174,28 +181,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 7. Mobile Menu Toggle
+    // 7. Mobile Menu Toggle (fullscreen drawer)
     const mobileBtn = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
 
     if (mobileBtn && navLinks) {
-        mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const isActive = navLinks.classList.contains('active');
-            mobileBtn.innerHTML = `<i data-lucide="${isActive ? 'x' : 'menu'}"></i>`;
+        const setMenuOpen = (open) => {
+            navLinks.classList.toggle('active', open);
+            document.body.classList.toggle('nav-open', open);
+            mobileBtn.innerHTML = `<i data-lucide="${open ? 'x' : 'menu'}"></i>`;
+            mobileBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+        };
+        const closeMenu = () => setMenuOpen(false);
+
+        setMenuOpen(false);
+        mobileBtn.addEventListener('click', () => {
+            setMenuOpen(!navLinks.classList.contains('active'));
         });
-        
+
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileBtn.innerHTML = `<i data-lucide="menu"></i>`;
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                }
-            });
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+
+        window.addEventListener('resize', () => {
+            if (!window.matchMedia('(max-width: 768px)').matches) closeMenu();
         });
     }
 
